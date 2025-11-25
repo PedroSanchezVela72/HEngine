@@ -1,0 +1,112 @@
+#ifndef INPUT_KEYS_H
+#define INPUT_KEYS_H
+
+namespace H {
+
+	enum InputType {
+		KEYBOARD = 0,
+		MOUSE = 1,
+		GAMEPAD = 2,
+		TOUCH = 3
+	};
+
+	enum KeyCode {
+		HENGINE_A = 'a',
+		HENGINE_B = 'b',
+		HENGINE_C = 'c',
+		HENGINE_D = 'd',
+		HENGINE_E = 'e',
+		HENGINE_F = 'f',
+		HENGINE_G = 'g',
+		HENGINE_H = 'h',
+		HENGINE_I = 'i',
+		HENGINE_J = 'j',
+		HENGINE_K = 'k',
+		HENGINE_L = 'l',
+		HENGINE_M = 'm',
+		HENGINE_N = 'n',
+		HENGINE_O = 'o',
+		HENGINE_P = 'p',
+		HENGINE_Q = 'q',
+		HENGINE_R = 'r',
+		HENGINE_S = 's',
+		HENGINE_T = 't',
+		HENGINE_U = 'u',
+		HENGINE_V = 'v',
+		HENGINE_W = 'w',
+		HENGINE_Y = 'y',
+		HENGINE_X = 'x',
+		HENGINE_Z = 'z',
+		HENGINE_DOWN,
+		HENGINE_UP,
+		HENGINE_RIGHT,
+		HENGINE_LEFT,
+		HENGINE_SPACE,
+		HENGINE_RETURN,
+		HENGINE_LSHIFT,
+		HENGINE_LCTRL,
+		HENGINE_TAB,
+		HENGINE_ESCAPE,
+
+		HENGINE_0 = '0',
+		HENGINE_1 = '1',
+		HENGINE_2 = '2',
+		HENGINE_3 = '3',
+		HENGINE_4 = '4',
+		HENGINE_5 = '5',
+		HENGINE_6 = '6',
+		HENGINE_7 = '7',
+		HENGINE_8 = '8',
+		HENGINE_9 = '9'
+	};
+
+	enum GamepadButton {
+		HENGINE_GAMEPAD_A = 0,
+		HENGINE_GAMEPAD_B = 1,
+		HENGINE_GAMEPAD_X = 2,
+		HENGINE_GAMEPAD_Y = 3,
+		HENGINE_GAMEPAD_LB = 4, // Botones del gatillo izquierdo
+		HENGINE_GAMEPAD_RB = 5, // Botones del gatillo derecho
+		HENGINE_GAMEPAD_START = 6,
+		HENGINE_GAMEPAD_BACK = 7,
+		HENGINE_GAMEPAD_LEFTSTICK = 8,
+		HENGINE_GAMEPAD_RIGHTSTICK = 9,
+		HENGINE_GAMEPAD_DPAD_UP = 10,
+		HENGINE_GAMEPAD_DPAD_DOWN = 11,
+		HENGINE_GAMEPAD_DPAD_LEFT = 12,
+		HENGINE_GAMEPAD_DPAD_RIGHT = 13
+	};
+
+	enum GamepadAxis {
+		HENGINE_LEFT_X = 0, // Eje X del stick izquierdo
+		HENGINE_LEFT_Y = 1, // Eje Y del stick izquierdo
+		HENGINE_RIGHT_X = 2, // Eje X del stick derecho
+		HENGINE_RIGHT_Y = 3, // Eje Y del stick derecho
+		HENGINE_LT = 4, // Gatillo izquierdo
+		HENGINE_RT = 5  // Gatillo derecho
+	};
+
+	enum MouseButton {
+		HENGINE_LEFT_BUTTON = 1,
+		HENGINE_RIGHT_BUTTON = 2,
+		HENGINE_MIDDLE_BUTTON = 3,
+		HENGINE_X1_BUTTON = 4,
+		HENGINE_X2_BUTTON = 5
+	};
+
+	enum Event {
+		HENGINE_KEYDOWN = 768,
+		HENGINE_KEYUP = 769,
+		HENGINE_MOUSEMOTION = 1024,
+		HENGINE_MOUSEBUTTONDOWN = 1025,
+		HENGINE_MOUSEBUTTONUP = 1026,
+		HENGINE_MOUSEWHEEL = 1027,
+		HENGINE_CONTROLLERAXISMOTION = 1616,
+		HENGINE_CONTROLLERBUTTONDOWN = 1617,
+		HENGINE_CONTROLLERBUTTONUP = 1618,
+		HENGINE_CONTROLLERDEVICEADDED = 1619,
+		HENGINE_CONTROLLERDEVICEREMOVED = 1620,
+		HENGINE_QUIT = 256
+	};
+}
+#endif // INPUT_KEYS_H

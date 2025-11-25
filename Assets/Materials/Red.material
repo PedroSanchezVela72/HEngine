@@ -1,0 +1,23 @@
+material Red {
+    technique {
+        pass {
+            ambient 1.0 0.0 0.0 1  // Rojo puro sin iluminación
+            diffuse 1.0 0.0 0.0 1  // Rojo puro sin sombras
+            emissive 1.0 0.0 0.0 1  // Autoiluminado en rojo
+            scene_blend replace  // Evita transparencia
+            depth_write off  // Evita que sea ocultado por otros objetos
+            depth_check off  // Se renderiza siempre encima de todo
+            depth_bias -1
+        }
+
+        pass {  // Pass adicional para brillo
+            ambient 1.0 0.0 0.0 1
+            diffuse 1.2 0.2 0.2 1  // Aumenta el brillo con un tono más claro
+            emissive 1.5 0.2 0.2 1  // Brillo más intenso
+            scene_blend add  // Agrega luz sobre el color base
+            depth_write off
+            depth_check off
+            depth_bias -2  // Se renderiza ligeramente encima del primer Pass
+        }
+    }
+}

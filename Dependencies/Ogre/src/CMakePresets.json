@@ -1,0 +1,69 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 19,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "Release-x64",
+      "description": "Configuracion de OGRE en release",
+      "generator": "Visual Studio 17 2022",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_GENERATOR_PLATFORM": "x64",
+        "OGRE_BUILD_SAMPLES": "OFF",
+        "OGRE_BUILD_TESTS": "OFF",
+        "OGRE_BUILD_COMPONENT_TERRAIN": "OFF",
+        "OGRE_BUILD_RENDERSYSTEM_D3D11": "OFF",
+        "OGRE_BUILD_RENDERSYSTEM_GL3PLUS": "OFF",
+        "OGRE_BUILD_RENDERSYSTEM_GLES2": "OFF",
+        "OGRE_BUILD_RENDERSYSTEM_GL": "ON",
+        "OGRE_BUILD_RENDERSYSTEM_D3D9": "OFF",
+        "OGRE_BUILD_RTT": "OFF",
+        "OGRE_BUILD_PLUGIN_OCTREE": "ON",
+        "OGRE_BUILD_PLUGIN_PFX": "ON",
+        "OGRE_BUILD_PLUGIN_BSP": "OFF",
+        "OGRE_BUILD_PLUGIN_CG": "OFF",
+        "OGRE_BUILD_PLUGIN_DOT3": "OFF",
+        "OGRE_BUILD_PLUGIN_DOT_SCENE": "OFF",
+        "OGRE_BUILD_PLUGIN_GLSL": "OFF",
+        "OGRE_BUILD_PLUGIN_PST": "OFF",
+        "OGRE_BUILD_BITES": "OFF",
+        "OGRE_BUILD_PLUGIN_STBI": "ON",
+        "OGRE_BUILD_PLUGIN_ASSIMP": "OFF"
+      }
+    },
+    {
+      "name": "Debug-x64",
+      "description": "Configuracion de OGRE en debug x64 ",
+      "generator": "Visual Studio 17 2022",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_GENERATOR_PLATFORM": "x64",
+        "OGRE_BUILD_SAMPLES": "OFF",
+        "OGRE_BUILD_TESTS": "OFF",
+        "OGRE_BUILD_COMPONENT_TERRAIN": "OFF",
+        "OGRE_BUILD_RENDERSYSTEM_D3D11": "OFF",
+        "OGRE_BUILD_RENDERSYSTEM_GL3PLUS": "OFF",
+        "OGRE_BUILD_RENDERSYSTEM_GLES2": "OFF",
+        "OGRE_BUILD_RENDERSYSTEM_GL": "ON",
+        "OGRE_BUILD_RENDERSYSTEM_D3D9": "OFF",
+        "OGRE_BUILD_RTT": "OFF",
+        "OGRE_BUILD_PLUGIN_OCTREE": "ON",
+        "OGRE_BUILD_PLUGIN_PFX": "ON",
+        "OGRE_BUILD_PLUGIN_BSP": "OFF",
+        "OGRE_BUILD_PLUGIN_CG": "OFF",
+        "OGRE_BUILD_PLUGIN_DOT3": "OFF",
+        "OGRE_BUILD_PLUGIN_DOT_SCENE": "OFF",
+        "OGRE_BUILD_PLUGIN_GLSL": "OFF",
+        "OGRE_BUILD_PLUGIN_PST": "OFF",
+        "OGRE_BUILD_BITES": "OFF",
+        "OGRE_BUILD_PLUGIN_STBI": "ON",
+        "OGRE_BUILD_PLUGIN_ASSIMP": "OFF"
+
+      }
+    }
+  ]
+}

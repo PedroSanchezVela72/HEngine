@@ -1,0 +1,14 @@
+font GameBubble
+{
+    type        truetype
+    source      GameBubble.ttf
+    size        16
+    resolution  96
+}
+font Apple
+{
+    type        truetype
+    source      AppleGaramond.ttf
+    size        16
+    resolution  96
+}

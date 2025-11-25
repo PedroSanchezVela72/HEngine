@@ -1,0 +1,60 @@
+# Ignorar carpetas de compilación
+Debug/
+Release/
+x64/
+x86/
+build/
+bin/
+obj/
+out/
+.vs/
+
+# Ignorar archivos de Visual Studio
+.vscode/
+*.suo
+*.user
+*.ncb
+*.cache
+*.pdb
+*.ilk
+*.ipch
+*.vs
+*.VC.db
+*.VC.opendb
+*.log
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.cmake
+
+# Ignorar dependencias generadas
+ThirdParty/
+external/
+CMakeCache.txt
+CMakeFiles/
+install_manifest.txt
+
+# Ignorar archivos temporales del sistema
+Thumbs.db
+.DS_Store
+*.bak
+*.tmp
+*.swp
+Assets/resources.cfg
+packman-repo
+
+
+#Excepciones
+!Projects/Editor/*
+!Projects/Audio/*
+!Projects/GUI/*
+!Projects/ECS/*
+!Projects/Input/*
+!Projects/Main/*
+!Projects/Physics/*
+!Projects/Render/*
+!Projects/Utils/*
+!H-Engine.sln
+
+#Esto se tiene que borrar incluso despues de excepciones
+*.vcxproj.user

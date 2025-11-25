@@ -1,0 +1,24 @@
+material Blue {
+    technique {
+        pass {
+            ambient 0.0 0.0 1.0 1  // Azul puro sin iluminación
+            diffuse 0.0 0.0 1.0 1  // Azul puro sin sombras
+            emissive 0.0 0.0 1.0 1  // Autoiluminado en azul
+            scene_blend replace  // Evita transparencia
+            cull_hardware none  // Renderiza todas las caras
+            depth_write off  // Evita que sea ocultado por otros objetos
+            depth_check off  // Se renderiza siempre encima de todo
+            depth_bias -1
+        }
+
+        pass {  // Pass adicional para brillo
+            ambient 0.0 0.0 1.0 1
+            diffuse 0.2 0.2 1.2 1
+            emissive 0.2 0.2 1.5 1  // Brillo más intenso
+            scene_blend add  // Agrega luz sobre el color base
+            depth_write off
+            depth_check off
+            depth_bias -2  // Se renderiza ligeramente encima del primer Pass
+        }
+    }
+}

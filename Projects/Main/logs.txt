@@ -1,0 +1,3 @@
+[EXCEPTION] -> Hora actual: 19:46:12: No se ha encontrado la dll del juego
+[EXCEPTION] -> Hora actual: 19:46:12: No se pudo encontrar la funcion InitManager
+[EXCEPTION] -> Hora actual: 19:46:12: No se pudo encontrar la funcion FlushMessages

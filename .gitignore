@@ -54,6 +54,7 @@ packman-repo
 !Projects/Physics/*
 !Projects/Render/*
 !Projects/Utils/*
+!Projects/Engine/*
 !H-Engine.sln
 
 #Esto se tiene que borrar incluso despues de excepciones

@@ -1,3 +1,3 @@
-[EXCEPTION] -> Hora actual: 19:46:12: No se ha encontrado la dll del juego
-[EXCEPTION] -> Hora actual: 19:46:12: No se pudo encontrar la funcion InitManager
-[EXCEPTION] -> Hora actual: 19:46:12: No se pudo encontrar la funcion FlushMessages
+[EXCEPTION] -> Hora actual: 18:55:40: Contexto OpenGL: 0000000000010001
+[EXCEPTION] -> Hora actual: 18:55:40: No se encontro el sistema de renderizado OpenGL
+[EXCEPTION] -> Hora actual: 18:55:40: Error: No se encontró el archivo resources.cfg en Assets/resources_h.cfg

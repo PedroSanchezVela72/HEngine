@@ -35,7 +35,7 @@ namespace H {
 
         Quaternion& operator=(const Quaternion& other) {
             if (this != &other) {
-                w = other.w; x = other.x; y = other.y; z = other.z;
+                w = other.w; x = other.x; y = other.y; z = other.z; pitch = other.pitch; yaw = other.yaw; roll = other.roll;
             }
             return *this;
         }
@@ -285,8 +285,11 @@ namespace H {
             Quaternion<T> q_yaw = Quaternion<T>::fromAngleAxis(yaw, Vector3<T>(0, 1, 0));
             Quaternion<T> q_roll = Quaternion<T>::fromAngleAxis(roll, Vector3<T>(0, 0, 1));
 
+            Vector3<T> euler(pitch, yaw, roll);
+
             // 4. Combinar de nuevo (el orden depende de tu convención, este es XYZ)
             *this = q_roll * q_yaw * q_pitch;
+            this->updateEuler(euler);
         }
 
         // Construye desde ángulo y eje

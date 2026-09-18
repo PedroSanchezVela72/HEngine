@@ -238,12 +238,11 @@ void PhysicsSystem::fixedUpdate(double deltaTime) {
     if (_mngr->isRunningGame()) {
         // Para ajustes que se hacen desde el tranform que no dependen de la fisica
         for (Entity* ent : gameObjects) {
-            if (_mngr->hasComponent<RigidBody>(ent))
-                transformToPhysicsRecursive(ent, true);
+            transformToPhysicsRecursive(ent, true);
         }
         _scene->simulate(deltaTime);
         _scene->fetchResults(true);
-		processPendingMaterialChanges();
+        processPendingMaterialChanges();
     }
 #else
     // Para ajustes que se hacen desde el tranform que no dependen de la fisica
@@ -276,20 +275,22 @@ void PhysicsSystem::entityIteration(Entity* entity, bool activeParent)
             if(!rb->rbStatic && !rb->rbKinematic)
                 // En caso de que algun actor esté dormido por no estar en movimiento
                 rb->actor->is<PxRigidDynamic>()->wakeUp(); 
+
+            bool isDynamic = !rb->rbStatic && !rb->rbKinematic;
+
 #ifdef _DEBUG
         if(!_mngr->isRunningGame()){
             transformToPhysics(entity); // Para el movimiento en el editor
         
             enableColliders(entity, true); // Asi no interactuan con nada de la escena en Editor
         }
-        else {
-            physicsToTransform(entity);
-            enableColliders(entity, true);
+        else if (isDynamic){
+                physicsToTransform(entity);
         }
 #else // DEBUG
         physicsToTransform(entity);
-        enableColliders(entity, true); 
 #endif
+        enableColliders(entity, true); 
         }
         else {
             rb->actor->setActorFlag(PxActorFlag::eDISABLE_SIMULATION, true);
@@ -316,8 +317,13 @@ void PhysicsSystem::transformToPhysics(Entity* ent) {
 
 void H::PhysicsSystem::transformToPhysicsRecursive(Entity* ent, bool activeParent)
 {
-    if(activeParent && ent->isActive())
-        transformToPhysics(ent);
+    if (activeParent && ent->isActive()) {
+        if (_mngr->hasComponent<RigidBody>(ent)) {
+            RigidBody* rb = _mngr->getComponent<RigidBody>(ent);
+            if (rb->rbStatic || rb->rbKinematic)
+                transformToPhysics(ent);
+        }
+    }
 
     std::list<Entity*> children = ent->getChildren();
     for (Entity* child : children) {
@@ -336,7 +342,7 @@ void PhysicsSystem::physicsToTransform(Entity* ent) {
     H::QuaternionF physxQuat(rbRot.w, rbRot.x, rbRot.y, rbRot.z); 
    
     
-    QuaternionF rot = (physxQuat).normalize(); 
+    QuaternionF rot = (physxQuat).normalize();
      
     if (ent->getParent() == nullptr) { 
         tr->position = pos; 
@@ -348,7 +354,7 @@ void PhysicsSystem::physicsToTransform(Entity* ent) {
     if (!parentTr) return;
      
     // Inversas para pasar de espacio global a local
-    QuaternionF parentRotInv = parentTr->getGlobalRotation().conjugate(); // si rotacion es unidad 
+    QuaternionF parentRotInv = parentTr->getGlobalRotation().normalize().conjugate(); // si rotacion es unidad 
     Vector3F parentScale = parentTr->getGlobalScale(); // suponiendo no hay escala 0 
 
     // Posición local: deshacer la rotacion y escala del padre
@@ -431,9 +437,9 @@ void PhysicsSystem::addRigidBodyFromLua(LoadLua* lua, Entity* entity, std::strin
     Transform* tr = _mngr->getComponent<Transform>(entity);
     RigidBody* rb = _mngr->addComponent<RigidBody>(entity, mass, isStatic, isKinematic);
 
-    Vector3F pos = tr->position;
+    Vector3F pos = tr->getGlobalPosition();
     PxVec3 pxPos(pos.x, pos.y, pos.z);
-    QuaternionF rot = tr->rotation.normalize();
+    QuaternionF rot = tr->getGlobalRotation().normalize();
     PxQuat pxRot(rot.x, rot.y, rot.z, rot.w);
 
     PxTransform pxTr(pxPos, pxRot);
@@ -662,9 +668,9 @@ void PhysicsSystem::addCapsuleColliderFromLua(LoadLua* lua, Entity* entity, std:
 
 void PhysicsSystem::addBoxCollider(Entity* e, const Vector3F& size, const Vector3F& offset, H::hdlrId hdlr, bool trigger, bool drawInDebug){
     Transform* tr = _mngr->getComponent<Transform>(e);
-    Vector3F pos = tr->position;
+    Vector3F pos = tr->getGlobalPosition();
     PxVec3 pxPos(pos.x, pos.y, pos.z);
-    QuaternionF rot = tr->rotation.normalize();
+    QuaternionF rot = tr->getGlobalRotation().normalize();
     PxQuat pxRot(rot.x, rot.y, rot.z, rot.w);
 
     PxTransform pxTr(pxPos, pxRot);

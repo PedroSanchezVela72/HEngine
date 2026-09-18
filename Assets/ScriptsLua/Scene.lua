@@ -43,7 +43,7 @@ CanvasUI = {
 }
 
 Cube = {
-  Parent = {ParentName = "Muros_Collection"},
+  Parent = "Muros_Collection",
   BoxCollider = {
     halfExtents = {
       z = 0.75,
@@ -86,7 +86,7 @@ Cube = {
 }
 
 Cube1 = {
-  Parent = {ParentName = "Muros_Collection"},
+  Parent = "Muros_Collection",
   BoxCollider = {
     halfExtents = {
       z = 0.75,
@@ -145,7 +145,7 @@ Cube1 = {
 }
 
 Cube2 = {
-  Parent = {ParentName = "Muros_Collection"},
+  Parent = "Muros_Collection",
   BoxCollider = {
     halfExtents = {
       z = 0.75,
@@ -188,7 +188,7 @@ Cube2 = {
 }
 
 Cube3 = {
-  Parent = {ParentName = "Muros_Collection"},
+  Parent = "Muros_Collection",
   BoxCollider = {
     halfExtents = {
       z = 0.75,
@@ -231,7 +231,7 @@ Cube3 = {
 }
 
 Cube4 = {
-  Parent = {ParentName = "Muros_Collection"},
+  Parent  = "Muros_Collection",
   BoxCollider = {
     halfExtents = {
       z = 0.75,
@@ -274,7 +274,7 @@ Cube4 = {
 }
 
 Cube5 = {
-  Parent = {ParentName = "Muros_Collection"},
+  Parent = "Muros_Collection",
   BoxCollider = {
     halfExtents = {
       z = 0.75,
@@ -367,7 +367,7 @@ MainLight = {
 }
 
 Muros_Collection = {
-  Parent = {ParentName = "prueba"},
+  Parent = "prueba",
   Transform = {
     position = {
       z = 0,
@@ -419,7 +419,7 @@ Particula = {
 }
 
 chair = {
-  Parent = {ParentName = "Muros_Collection"},
+  Parent = "Muros_Collection",
   BoxCollider = {
     halfExtents = {
       z = 0.43484500050545,

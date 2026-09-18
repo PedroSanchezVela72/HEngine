@@ -75,13 +75,13 @@ void LoadLua::loadScene(const std::string scenePath) {
 
         if (hasProperty(name, { "Parent" })) {
             entities[name] = _mngr->addEntity(grpId::_grp_ENTITIES);
-            parenthood.push_back({ name, loadStrValue(name, {"Parent", "ParentName"})}); // child / parent
+            parenthood.push_back({ name, loadStrValue(name, {"Parent"}) }); // child / parent
         }
         else {
             entities[name] = _mngr->addEntity(grpId::_grp_PARENTENTS);
         }
         if (hasProperty(name, { "Active" })) {
-            entities[name]->setActive(loadBoolValue(name, { "Active", "Active"}));
+            entities[name]->setActive(loadBoolValue(name, { "Active" }));
         }
         else
             entities[name]->setActive(true);
